@@ -8,7 +8,7 @@
 
     <ItemGroup>
         <PackageReference Include="Backend.Fx" Version="8.1.5"/>
-        <PackageReference Include="Backend.Fx.Execution.Abstractions" Version="1.1.7"/>
+        <PackageReference Include="Backend.Fx.Execution.Abstractions" Version="1.1.8"/>
         <PackageReference Include="Microsoft.SourceLink.GitHub" Version="10.0.201" PrivateAssets="All"/>
     </ItemGroup>
 
