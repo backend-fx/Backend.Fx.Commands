@@ -1,15 +1,33 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net8.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
+        <IncludeSymbols>true</IncludeSymbols>
+        <LangVersion>latest</LangVersion>
         <Nullable>enable</Nullable>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+        <TargetFramework>net8.0</TargetFramework>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <Authors>Marc Wittke</Authors>
+        <Company>anic GmbH</Company>
+        <Copyright>All rights reserved. Distributed under the terms of the MIT License.</Copyright>
+        <Description>Command pattern library for use with Backend.Fx.Execution.</Description>
+        <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
+        <PackageLicense>MIT</PackageLicense>
+        <PackageProjectUrl>https://github.com/backend-fx/Backend.Fx.Commands</PackageProjectUrl>
+        <Product>Backend.Fx</Product>
+        <RepositoryType>Git</RepositoryType>
+        <RepositoryUrl>https://github.com/backend-fx/Backend.Fx.Commands.git</RepositoryUrl>
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Backend.Fx" Version="8.1.10" />
-        <PackageReference Include="Backend.Fx.Execution.Abstractions" Version="1.1.10" />
-        <PackageReference Include="Microsoft.SourceLink.GitHub" Version="10.0.400" PrivateAssets="All"/>
+        <PackageReference Include="Backend.Fx" Version="8.1.13"/>
+        <PackageReference Include="Backend.Fx.Execution.Abstractions" Version="1.1.11"/>
+        <PackageReference Include="JetBrains.Annotations" Version="2026.2.0" PrivateAssets="All"/>
+        <PackageReference Include="Microsoft.SourceLink.GitHub" Version="10.0.401" PrivateAssets="All"/>
     </ItemGroup>
 
 </Project>
