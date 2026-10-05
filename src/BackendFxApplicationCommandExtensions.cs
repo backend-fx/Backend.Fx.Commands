@@ -12,25 +12,30 @@ public static class BackendFxApplicationCommandExtensions
         this IBackendFxApplication application,
         ICommand command,
         IIdentity? identity = null,
-        CancellationToken cancellation = default)
+        CancellationToken cancellation = default
+    )
     {
-        await application.Invoker.InvokeAsync(
-            async (sp, ct) =>
-            {
-                // ReSharper disable once SuspiciousTypeConversion.Global
-                if (command is IInitializableCommand initializableCommand)
+        await application
+            .Invoker.InvokeAsync(
+                async (sp, ct) =>
                 {
-                    await initializableCommand.InitializeAsync(sp, ct).ConfigureAwait(false);
-                }
+                    // ReSharper disable once SuspiciousTypeConversion.Global
+                    if (command is IInitializableCommand initializableCommand)
+                    {
+                        await initializableCommand.InitializeAsync(sp, ct).ConfigureAwait(false);
+                    }
 
-                // ReSharper disable once SuspiciousTypeConversion.Global
-                if (command is IAuthorizedCommand authorizedCommand)
-                {
-                    await authorizedCommand.AuthorizeAsync(sp, ct).ConfigureAwait(false);
-                }
+                    // ReSharper disable once SuspiciousTypeConversion.Global
+                    if (command is IAuthorizedCommand authorizedCommand)
+                    {
+                        await authorizedCommand.AuthorizeAsync(sp, ct).ConfigureAwait(false);
+                    }
 
-                await command.AsyncInvocation.Invoke(sp, ct).ConfigureAwait(false);
-            },
-            identity ?? new AnonymousIdentity(), cancellation).ConfigureAwait(false);
+                    await command.AsyncInvocation.Invoke(sp, ct).ConfigureAwait(false);
+                },
+                identity ?? new AnonymousIdentity(),
+                cancellation
+            )
+            .ConfigureAwait(false);
     }
 }
